@@ -1,24 +1,29 @@
-import React, { useState } from "react";
-import Counter from "./components/Counter";
-import ClassCounter from "./components/ClassCounter";
+import React, { useRef, useState } from "react";
 import './styles/App.css'
+import PostList from "./components/PostList";
+import PostForm from "./components/PostForm";
+
 function App() {
-	const [likes, setLikes] = useState(0)
-	const [value, setValue] = useState('Tekst input')
+	const [posts, setPosts] = useState([
+		{ id: 1, title: 'javaScript', content: 'JavaScript - asdasasdasdasd' },
+		{ id: 2, title: 'javaScript', content: 'JavaScript - asdasasdasdasd' },
+		{ id: 3, title: 'javaScript', content: 'JavaScript - asdasasdasdasd' }
+	])
+	const [title, setTitle] = useState('')
+	const [content, setContent] = useState('')
+	const bodyInput = useRef()
+	const createPost = (newPost) =>{
+		setPosts([...posts, newPost])
+	}
+	const removePost = (post) =>{
+		setPosts(posts.filter(p => p.id !== post.id))
+
+	}
 
 	return (
 		<div className="App">
-			<div className="post">
-				<div className="post_content">
-					<strong>1. javaScript</strong>
-					<div>
-						JavaScript - asdasasdasdasd
-					</div>
-					<div className="post__btns">
-						<button>Remove</button>
-					</div>
-				</div>
-			</div>
+			<PostForm create={createPost} posts={posts}></PostForm>
+			<PostList remove={removePost} posts={posts} title={'Posts List JS'}></PostList>
 		</div>
 
 

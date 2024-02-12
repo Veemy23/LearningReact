@@ -7,6 +7,51 @@
 	display: flex;
 	justify-content: center;
 }
+body {
+	background-color: rgb(93, 85, 70);
+}
 .App {
 	width: 600px;
+	padding: 20px 0px;
+
+}
+.post__list{
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.post {
+	border: 4px solid #333;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 30px 15px;
+	transition: all 0.3s ease 0s;
+	background-color: #ebc585;
+	&:hover {
+		background-color: #ecd4aa;
+	}
+	.post__content {
+	}
+	.post__btns {
+		button {
+			padding: 10px;
+			background-color: rgb(137, 41, 12);
+			color: white;
+			border: 0;
+			cursor: pointer;
+			transition: all 0.3s ease 0s;
+			&:hover {
+				transform: scale(1.1);
+			}
+		}
+	}
+}
+.create__post{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	gap: 15px;
+	padding: 20px;
+
 }
