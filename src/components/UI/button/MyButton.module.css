@@ -1,0 +1,13 @@
+.myBtn{
+	width: max-content;
+	align-self: end;
+	padding: 15px 30px;
+	background-color: rgb(12, 137, 27);
+	color: white;
+	border: 0;
+	cursor: pointer;
+	transition: all 0.3s ease 0s;
+	&:hover {
+		transform: scale(1.1);
+	}
+}
